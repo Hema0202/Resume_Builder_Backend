@@ -8,6 +8,16 @@ async function signupController(req, res){
   let email=data.email;
   let password = data.password;
 
+// handle unique email
+  const oldUser = await userModel.findOne({
+    email : email
+  })
+
+  if(oldUser) return res.send({
+    status: false,
+    message: `${email} is already registered`
+  })
+
   const user = await userModel.create({
     name:name,
     email:email,
