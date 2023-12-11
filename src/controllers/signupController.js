@@ -9,6 +9,25 @@ async function signupController(req, res) {
     let email = data.email;
     let password = data.password;
 
+    if(!name){
+      return res.send({
+        status:false,
+        message:'name is required'
+      })
+    }
+    if(!email){
+      return res.send({
+        status:false,
+        message:'email is required'
+      })
+    }
+    if(!password){
+      return res.send({
+        status:false,
+        message:'password is required'
+      })
+    }
+
     // handle unique email
     const oldUser = await userModel.findOne({
       email: email,

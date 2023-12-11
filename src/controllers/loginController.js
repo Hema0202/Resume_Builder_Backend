@@ -6,6 +6,9 @@ async function loginController(req, res) {
     let data = req.body;
     let email = data.email;
     let password = data.password;
+
+   
+
     if (!email)
       return res.send({
         status: false,

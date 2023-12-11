@@ -15,7 +15,48 @@ const userSchema = mongoose.Schema({
     password:{
         type:String,
         required:true
-    }
+    },
+
+    phone: {
+        type:String
+    },
+
+    linkedinLink: {
+        type:String
+    },
+
+    githubLink: {
+        type:String
+    },
+
+    skills: [String],
+
+    interest: [String],
+
+    hobby: [String],
+
+    education: [{
+        college: String,
+      degree: String,
+      percentage: String,
+      startYear:  String,
+      endYear: String
+    }],
+
+    project: [{
+        projectTitle: String,
+        projectLink: String,
+        projectDescription: String
+    }],
+
+    experience: [{
+        companyName: String,
+      designation: String,
+      description: String,
+      starting: String,
+      ending: String
+    }]
+    
 },
 {timestamps:true}
 )
